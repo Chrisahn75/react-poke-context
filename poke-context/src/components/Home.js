@@ -8,6 +8,7 @@ export default function Home() {
     fetch("https://pokeapi.co/api/v2/pokemon/1")
       .then((res) => res.json())
       .then((res) => setPokemon(res))
+      .then(console.log(pokemon))
       .catch((err) => console.log(err));
   }, []);
 
@@ -15,6 +16,7 @@ export default function Home() {
       fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`)
         .then((res) => res.json())
         .then((res) => setPokemon(res))
+        .then(console.log(pokemon))
         .catch((err) => console.log(err));
   }, [randomNumber]);
 
