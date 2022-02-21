@@ -20,13 +20,13 @@ export default function Home() {
         .catch((err) => console.log(err));
   }, [randomNumber]);
 
-  function ChangeRandomNumber() {
+  function RandomNumber() {
     setRandomNumber(Math.floor(Math.random() * 100) + 1);
   }
 
   return (
     <>
-      <button onClick={ChangeRandomNumber}>Click to get random Pokemon</button>
+      <button onClick={RandomNumber}>Click to get random Pokemon</button>
       <p>Name : {pokemon.name}</p>
       <p>Height :{pokemon.height}</p>
       <p>Weight : {pokemon.weight}</p>
