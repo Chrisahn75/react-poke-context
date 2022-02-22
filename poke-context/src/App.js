@@ -11,18 +11,20 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const value = {
     isLoggedIn: isLoggedIn,
-    setIsLoggedIn: setIsLoggedIn,
+    setIsLoggedIn: false,
   };
   return (
-    <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/Login">Login</Link>
-      </nav>
-      <Switch>
-        <Route exact path="/" component={Home}></Route>
-        <Route exact path="/Login" component={Login}></Route>
-      </Switch>
-    </BrowserRouter>
+    <UserContext.Provider value={value}>
+      <BrowserRouter>
+        <nav>
+          <Link to="/">Home</Link>
+          <Link to="/Login">Login</Link>
+        </nav>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/Login" component={Login}></Route>
+        </Switch>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
