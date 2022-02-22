@@ -3,8 +3,16 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { createContext, useState } from "react";
+
+export const UseContext = createContext();
 
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const value = {
+    isLoggedIn: isLoggedIn,
+    setIsLoggedIn: setIsLoggedIn,
+  };
   return (
     <BrowserRouter>
       <nav>
