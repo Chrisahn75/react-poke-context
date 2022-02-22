@@ -8,10 +8,10 @@ import { createContext, useState } from "react";
 export const UseContext = createContext();
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLogged, setLogged] = useState(false);
   const value = {
-    isLoggedIn: isLoggedIn,
-    setIsLoggedIn: false,
+    isLogged: isLogged,
+    setLogged: setLogged,
   };
   return (
     <UserContext.Provider value={value}>
