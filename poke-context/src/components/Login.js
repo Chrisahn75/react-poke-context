@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../App";
+import { useHistory } from "react-router-dom";
+
 
 export default function Login() {
+  const { isLogged, setAuth } = useContext(UserContext);
+  const history = useHistory();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
-  return (
+  const onSubmit = (data) => {
+    setAuth();
+    history.push("/");
+    console.log(data);
+  }
+
+  return isLogged ? (
+    <div>
+      <div onClick={onSubmit}>
+        Logout
+      </div>
+    </div>
+  ) : (
     <div>
       <h1>Login</h1>
       <form onSubmit={handleSubmit(onSubmit)}>

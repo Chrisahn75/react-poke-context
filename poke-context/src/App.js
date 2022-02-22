@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import Home from "./components/Home";
 import Login from "./components/Login";
 
+
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import { createContext, useState } from "react";
+
 
 export const UserContext = createContext({isLogged: false});
 
