@@ -5,16 +5,16 @@ import Login from "./components/Login";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { createContext, useState } from "react";
 
-export const UseContext = createContext();
+export const UserContext = createContext({isLogged: false});
 
 export default function App() {
   const [isLogged, setLogged] = useState(false);
-  const value = {
-    isLogged: isLogged,
-    setLogged: setLogged,
+  const setAuth = () => {
+    setLogged(isLogged ? false : true);
   };
+
   return (
-    <UserContext.Provider value={value}>
+    <UserContext.Provider value={setLogged,setAuth}>
       <BrowserRouter>
         <nav>
           <Link to="/">Home</Link>
